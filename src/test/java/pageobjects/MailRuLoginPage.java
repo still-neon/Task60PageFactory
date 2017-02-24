@@ -32,14 +32,14 @@ public class MailRuLoginPage {
         driver.close();
     }
 
-    public MailRuMailPage login(String login, String password) {
-        this.login.sendKeys(login);
-        this.password.sendKeys(password);
+    public MailRuMailPage login() {
+        this.login.sendKeys("seleniumtests10@mail.ru");
+        this.password.sendKeys("060788avavav");
         enterButton.click();
         return new MailRuMailPage(driver);
     }
 
-    public void checkEnter(String enterLink) {
-        assertEquals(this.enterLink.getText(), enterLink);
+    public void checkEnter() {
+        assertEquals(this.enterLink.getText(), "Вход");
     }
 }

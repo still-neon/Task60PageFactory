@@ -7,11 +7,6 @@ import pageobjects.MailRuMailPage;
 public class LogIn {
 
     private WebDriver driver;
-    private String login = "seleniumtests10@mail.ru";
-    private String password = "060788avavav";
-    private String exitLink = "выход";
-    private String enterLink = "Вход";
-
 
     @BeforeMethod
     public void setUp() {
@@ -25,9 +20,9 @@ public class LogIn {
 
         mailRuLoginPage.load();
 
-        MailRuMailPage mailRuMailPage = mailRuLoginPage.login(login, password);
+        MailRuMailPage mailRuMailPage = mailRuLoginPage.login();
 
-        mailRuMailPage.checkExit(exitLink);
+        mailRuMailPage.checkExit();
 
         mailRuMailPage.close();
     }
@@ -39,11 +34,11 @@ public class LogIn {
 
         mailRuLoginPage.load();
 
-        MailRuMailPage mailRuMailPage = mailRuLoginPage.login(login, password);
+        MailRuMailPage mailRuMailPage = mailRuLoginPage.login();
 
         mailRuLoginPage = mailRuMailPage.logout();
 
-        mailRuLoginPage.checkEnter(enterLink);
+        mailRuLoginPage.checkEnter();
 
         mailRuLoginPage.close();
     }
