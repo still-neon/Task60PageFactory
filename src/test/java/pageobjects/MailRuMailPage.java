@@ -21,9 +21,7 @@ public class MailRuMailPage {
         this.driver.close();
     }
 
-    public void checkExit() {
-        assertEquals(this.exitLink.getText(), "выход");
-    }
+    public void checkExit() {assertEquals(this.exitLink.getText(), "выход");}
 
     public MailRuLoginPage logout() {
         exitLink.click();

@@ -3,6 +3,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.*;
 import pageobjects.MailRuLoginPage;
 import pageobjects.MailRuMailPage;
+import static java.util.concurrent.TimeUnit.SECONDS;
 
 public class LogIn {
 
@@ -22,6 +23,8 @@ public class LogIn {
 
         MailRuMailPage mailRuMailPage = mailRuLoginPage.login();
 
+        driver.manage().timeouts().implicitlyWait(5, SECONDS);
+
         mailRuMailPage.checkExit();
 
         mailRuMailPage.close();
@@ -35,6 +38,8 @@ public class LogIn {
         mailRuLoginPage.load();
 
         MailRuMailPage mailRuMailPage = mailRuLoginPage.login();
+
+        driver.manage().timeouts().implicitlyWait(5, SECONDS);
 
         mailRuLoginPage = mailRuMailPage.logout();
 
