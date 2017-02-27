@@ -23,7 +23,7 @@ public class LogIn {
 
         MailRuMailPage mailRuMailPage = mailRuLoginPage.login();
 
-        driver.manage().timeouts().implicitlyWait(5, SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, SECONDS);
 
         mailRuMailPage.checkExit();
 
@@ -39,7 +39,7 @@ public class LogIn {
 
         MailRuMailPage mailRuMailPage = mailRuLoginPage.login();
 
-        driver.manage().timeouts().implicitlyWait(5, SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, SECONDS);
 
         mailRuLoginPage = mailRuMailPage.logout();
 
