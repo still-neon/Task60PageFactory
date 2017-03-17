@@ -4,27 +4,29 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static org.testng.Assert.assertEquals;
 
 public class MailRuMailPage {
     @FindBy(id = "PH_logoutLink")
     private WebElement exitLink;
+    @FindBy(id = "PH_authLink")
+    private WebElement enterLink;
     private WebDriver driver;
+    private WebElement myDynamicElement;
 
     public MailRuMailPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
-    public void close() {
-        this.driver.close();
-    }
-
-    public void checkExit() {assertEquals(this.exitLink.getText(), "выход");}
-
     public MailRuLoginPage logout() {
         exitLink.click();
+        myDynamicElement = (new WebDriverWait(driver, 10)).until(ExpectedConditions.visibilityOf(enterLink));
         return new MailRuLoginPage(driver);
     }
+
+    public String getCheckExit() {return exitLink.getText();}
 }
