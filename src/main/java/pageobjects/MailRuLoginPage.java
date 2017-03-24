@@ -8,9 +8,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class MailRuLoginPage {
-
-    public static final String LOGIN = "seleniumtests10@mail.ru";
-    public static final String PASSWORD = "060788avavav";
+    private static final String LOGIN = "seleniumtests10@mail.ru";
+    private static final String PASSWORD = "060788avavav";
+    private static final String URL = "http://mail.ru";
     @FindBy(id = "mailbox__login")
     private WebElement login;
     @FindBy(id = "mailbox__password")
@@ -23,7 +23,7 @@ public class MailRuLoginPage {
     private WebElement exitLink;
     private WebDriver driver;
     private WebElement myDynamicElement;
-    private String url = "http://mail.ru";
+
 
     public MailRuLoginPage(WebDriver driver) {
         this.driver = driver;
@@ -31,7 +31,7 @@ public class MailRuLoginPage {
     }
 
     public void load() {
-        driver.get(url);
+        driver.get(URL);
     }
 
     public MailRuMailPage login() {
@@ -42,7 +42,7 @@ public class MailRuLoginPage {
         return new MailRuMailPage(driver);
     }
 
-    public MailRuMailPage loginExtra(String login, String password) {
+    public MailRuMailPage login(String login, String password) {
         this.login.sendKeys(login);
         this.password.sendKeys(password);
         enterButton.click();
@@ -50,5 +50,7 @@ public class MailRuLoginPage {
         return new MailRuMailPage(driver);
     }
 
-    public String getCheckEnter(){return enterLink.getText();}
+    public String getEnterValue() {
+        return enterLink.getText();
+    }
 }

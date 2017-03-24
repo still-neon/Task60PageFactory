@@ -7,8 +7,6 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import static org.testng.Assert.assertEquals;
-
 public class MailRuMailPage {
     @FindBy(id = "PH_logoutLink")
     private WebElement exitLink;
@@ -28,5 +26,7 @@ public class MailRuMailPage {
         return new MailRuLoginPage(driver);
     }
 
-    public String getCheckExit() {return exitLink.getText();}
+    public String getExitValue() {
+        return exitLink.getText();
+    }
 }
