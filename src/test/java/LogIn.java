@@ -5,6 +5,7 @@ import org.openqa.selenium.firefox.internal.ProfilesIni;
 import org.testng.annotations.*;
 import pageobjects.MailRuLoginPage;
 import pageobjects.MailRuMailPage;
+
 import static java.util.concurrent.TimeUnit.SECONDS;
 import static org.testng.Assert.assertEquals;
 
